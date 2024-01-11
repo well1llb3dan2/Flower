@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Management</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #303030;
+            color: #FFFFFF;
+        }
+
+        button {
+            background-color: #DDDDDD;
+            color: #101010;
+            border: 2px solid #101010;
+            border-radius: 10px;
+        }
+
+        button:hover {
+            background-color: #bbbbbb;
+        }
+
+        h2 {
+            font-size: 30px;
+            background-color: #101010;
+            border: 2px solid #007419;
+            border-radius: 10px;
+            margin: 10px auto 10px auto;
+            padding: 10px 40px 10px 40px;
+            width: max-content;
+        }
+
+        h3 {
+            font-size: 25px;
+            background-color: #101010;
+            border: 2px solid #007419;
+            border-radius: 10px;
+            margin: 0 auto 0 auto;
+            padding: 5px 40px 5px 40px;
+            width: max-content;
+        }
+
+        #users-section {
+            flex-direction: column;
+        }
+
+        #strains-section {
+            flex-direction: column;
+        }
+
+        #add-user-form,
+        #add-strain-form {
+            flex-direction: column;
+            border: 4px solid #00350b;
+            border-radius: 10px;
+            background-color: #1c1c1c;
+            width: max-content;
+            margin: 0 auto 0 auto;
+            padding: 10px
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .listContainer {
+            margin-top: 10px;
+            height: calc(100vh - 222px);
+            overflow-y: scroll;
+
+        }
+
+        .inputFormContainer {
+            display: flex;
+            justify-content: space-between;
+            width: auto;
+            margin: 6px 0px 6px 0px;
+        }
+
+        .jCenter {
+            justify-content: center;
+            height: auto;
+        }
+
+        .inputFormContainer input {
+            margin-left: 30px;
+        }
+
+        .sidebar {
+            display: inherit;
+            flex-direction: row;
+            width: 100%;
+            background-color: #1c1c1c;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar button {
+            width: 80px;
+            padding: 10px;
+            margin: 10px 10px 10px 10px;
+            cursor: pointer;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 0px 20px 20px 20px;
+        }
+
+        .user-dropdown {
+            background-color: #333333;
+            color: #FFFFFF;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 5px 20px 0 20px;
+        }
+
+        .strain-dropdown {
+            background-color: #333333;
+            color: #FFFFFF;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 5px 20px 0 20px;
+        }
+
+        .username-container {
+            background-color: #242424;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 5px;
+            color: #FFFFFF;
+        }
+
+        .strainname-container {
+            background-color: #242424;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 5px auto 5px auto;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <button onclick="showUsers()">Manage Users</button>
+            <button onclick="showStrains()">Manage Strains</button>
+            <button onclick="printLabels()">Print Labels</button>
+        </div>
+
+        <div class="main-content">
+
+            <!-- User management content goes here -->
+            <div id="users-section" style="display: none">
+                <h2>User Management</h2>
+
+                <button style="display: inline; height: 40px" onclick="toggleAddUserForm()">Manual Add New User</button>
+                
+                <div class="listContainer">
+
+                    <div id="add-user-form" style="display: none;">
+                        <div class="inputFormContainer jCenter">
+                            <h3>Add User</h3>
+                        </div>
+                        <form onsubmit="addUser(event)">
+                            <div class="inputFormContainer">
+                                <label for="username">Username:</label>
+                                <input type="text" id="username" required>
+                            </div>
+
+                            <div class="inputFormContainer">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" required>
+                            </div>
+
+                            <div class="inputFormContainer">
+                                <label for="password">Password:</label>
+                                <input type="password" id="password" required>
+                            </div>
+
+                            <div class="inputFormContainer">
+                                <label for="rewards">Rewards:</label>
+                                <input type="text" id="rewards" required>
+                            </div>
+
+                            <div class="inputFormContainer jCenter">
+                                <button type="submit" style="height: 40px; width: 80px">Add User</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="user-list">
+                        <!-- User list will be displayed here dynamically -->
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div id="strains-section" style="display: none;">
+                <!-- Strain management content goes here -->
+                <h2>Strain Management</h2>
+
+                <button style="display: inline; height: 40px" onclick="toggleAddStrainForm()">Manual Add New strain</button>
+                <div class="listContainer">
+
+                    <div id="add-strain-form" style="display: none;">
+                        <div class="inputFormContainer jCenter">
+                            <h3>Add strain</h3>
+                        </div>
+                        <form onsubmit="addStrain(event)" onreset="cancelStrain(event)">
+                            <div class="inputFormContainer">
+                                <label for="strainname">Strain name:</label>
+                                <input type="text" id="strainname" required>
+                            </div>
+                            <div class="inputFormContainer">
+                                <label for="type">Type:</label>
+                                <input type="text" id="type" required>
+                            </div>
+                            <div class="inputFormContainer">
+                                <label for="thc">THC%:</label>
+                                <input type="text" id="thc" required>
+                            </div>
+                            <div class="inputFormContainer">
+                                <label for="parent1">Parent 1:</label>
+                                <input type="text" id="parent1" required>
+                            </div>
+                            <div class="inputFormContainer">
+                                <label for="parent2">Parent 2:</label>
+                                <input type="text" id="parent2" required>
+                            </div>
+                            <div class="inputFormContainer jCenter">
+                                <button type="submit" id="addStrainButton" style="height: 40px; width: 80px">Add strain</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="strain-list">
+                        <!-- strain list will be displayed here dynamically -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>

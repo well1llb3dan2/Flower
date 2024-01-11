@@ -1,0 +1,38 @@
+function showStrainList() {
+    const strainListContainer = document.getElementById("strain-list");
+    strainListContainer.innerHTML = "";
+
+    strainsData.forEach((strain) => {
+        const strainContainer = document.createElement("div");
+        strainContainer.classList.add("strain-container");
+
+        const strainnameContainer = document.createElement("div");
+        strainnameContainer.classList.add("strainname-container");
+        strainnameContainer.textContent = strain.strainname;
+
+        strainnameContainer.addEventListener("click", () => {
+            toggleDropdown(strainContainer, strain);
+        });
+
+        strainContainer.appendChild(strainnameContainer);
+        strainListContainer.appendChild(strainContainer);
+    });
+}
+
+function toggleDropdown(strainContainer, strain) {
+    const dropdown = strainContainer.querySelector(".strain-dropdown");
+    if (dropdown) {
+        dropdown.remove();
+    } else {
+        const dropdown = document.createElement("div");
+        dropdown.classList.add("strain-dropdown");
+        dropdown.innerHTML = `
+        <p>Type: ${strain.type}</p>
+        <p>THC%: ${strain.rewards}</p>
+        <p>Parent 1: ${strain.parent1}</p>
+        <p>Parent 2: ${strain.parent2}</p>
+        `;
+
+        strainContainer.appendChild(dropdown);
+    }
+}

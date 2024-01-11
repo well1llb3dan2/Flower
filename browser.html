@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cannabis Shop</title>
+    <link rel="stylesheet" href="browser.css">
+</head>
+
+<body>
+
+    <!-- Navbar Container Starts here -->
+    <header class="navbarContainer">
+        <div class="navbarContainer-l1" id="logoBadge">
+            <img src="./icons/logo.png" class="image" id="logoImage">
+            <p class="string" id="logoText">Your Cannabis Shop</p>
+        </div>
+        <div class="navbarContainer-l1" id="menuBadge">
+            <img src="./icons/optHorzWhite.png" class="button" id="menuButton">
+            <div class="menu" id="menuList" style="display: none">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container Starts here -->
+    <main class="mainContainer">
+
+        <!-- Description Container Starts here -->
+        <section class="descriptionContainer">
+            <h1>Browse our Products</h1>
+            <p>A couple of lines describing the page...</p>
+        </section>
+
+        <!-- Carousel Container Starts here -->
+        <section class="carouselContainer">
+            <img src="./icons/arrowLeft.png" class="carouselLeft" onclick="prevSlide()">
+            <div id="carouselTrack" class="carouselTrack">
+                <!-- Add your carousel items here -->
+                <div class="carouselItem">
+                    <img class="image" src="./images/BlackRuntz.jpg" alt="Image 1">
+                </div>
+                <div class="carouselItem">
+                    <img class="image" src="./images/BlueZlushie.jpg" alt="Image 2">
+                </div>
+                <div class="carouselItem">
+                    <img class="image" src="./images/DoubleBubble.jpg" alt="Image 3">
+                </div>
+                <!-- Add more items as needed -->
+            </div>
+            <img src="./icons/arrowRight.png" class="carouselRight" onclick="nextSlide()">
+        </section>
+
+        <!-- Filter Container Starts here -->
+        <section class="filterContainer">
+            <div class="filterItem">
+                <p>In stock:</p>
+                <input type="checkbox" id="inStock" name="inStock">
+            </div>
+            <div class="filterItem">
+                <p>Type:</p>
+                <select id="type" name="type">
+                    <option value="all">All</option>
+                    <option value="sativa">Sativa</option>
+                    <option value="indica">Indica</option>
+                    <option value="hybrid">Hybrid</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Card Container Starts here -->
+        <section class="cardContainer">
+            <div class="card">
+                <img src="" alt="">
+                <p class="card-name">Black Runtz</p>
+            </div>
+            <div class="card">
+                <img src="" alt="">
+                <p class="card-name">Permanent Marker</p>
+            </div>
+        </section>
+
+        <!-- Pagination Container Starts here -->
+        <section class="paginationContainer">
+            <div class="paginationContainerL1">
+                <img src="./icons/arrowLeftWhite.png" class="button" id="prevPage">
+                <p class="pageNumber">1</p>
+                <img src="./icons/arrowRightWhite.png" class="button" id="nextPage">
+            </div>
+        </section>
+    </main>
+
+    <script defer src="./browser.js"></script>
+</body>
+
+</html>

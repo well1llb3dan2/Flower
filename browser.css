@@ -1,0 +1,234 @@
+body {
+    font-family: 'Arial', sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: #303030; /* Dark theme background */
+    color: #FFFFFF; /* Light text color */
+    overflow: hidden;
+}
+
+
+/* Navbar Container Starts Here */
+.navbarContainer {
+    background-color: #1c1c1c;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-bottom: 6px solid #353535;
+    min-width: 200px;
+}
+
+.navbarContainer-l1 {
+    display: block;
+    text-align: center;
+    margin: 10px;
+}
+
+#logoText {
+    top: 50%;
+}
+
+#logoImage {
+    height: 80px;
+    width: 70px;
+}
+
+#menuBadge {
+    height: 80px;
+    width: auto;
+}
+
+#menuButton {
+    width: 100%;
+    height: 80%;
+    margin: 10px;
+}
+
+/* Main Container Starts Here */
+.mainContainer {
+    background-color: #1a1a1a;
+    height: calc(100vh - 90px);
+    width: 100%;
+    position: fixed;
+    top: 90px;
+    left: 0px;
+    overflow-y: scroll;
+    padding: 0;
+    min-width: 200px;
+}
+
+/* Description Container Starts Here */
+.descriptionContainer {
+    overflow: hidden;
+    background-color: #242424;
+    border-radius: 15px;
+    border: 8px solid #505050;
+    padding: 5px;
+    margin: 5px auto 0px auto;
+    min-width: 200px;
+    max-width: 1000px;
+}
+
+.descriptionContainer h1 {
+    margin: 4px auto 2px auto;
+    min-width: min-content;
+    max-width:max-content;
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+
+.descriptionContainer p {
+    margin: 2px auto 2px auto;
+    min-width: min-content;
+    max-width:max-content;
+    white-space: nowrap;
+    overflow-x: hidden;
+} 
+
+/* Carousel Container Starts Here */
+.carouselContainer {
+    overflow: hidden;
+    margin: 5px auto 0px auto;
+    background-color: #242424;
+    border-radius: 15px;
+    border: 8px solid #505050;
+    min-width: 200px;
+    max-width: 1000px;
+    min-height: 165px;
+    position: relative; /* Added position relative */
+}
+
+.carouselTrack {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carouselItem {
+    flex: 0 0 100%; /* Each item takes 100% width */
+    box-sizing: border-box;
+}
+
+.carouselItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.carouselLeft,
+.carouselRight {
+    height: 50px;
+    width: 50px;
+}
+
+.carouselLeft {
+    position: absolute;
+    top: 50%;
+    left: 10px; /* Adjust the left positioning */
+    transform: translateY(-50%);
+    z-index: 1; /* Ensure the arrow is above the images */
+}
+
+.carouselRight {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Adjust the right positioning */
+    transform: translateY(-50%);
+    z-index: 1; /* Ensure the arrow is above the images */
+}
+
+/* Filter Container Starts Here */
+.filterContainer {
+    overflow: hidden;
+    text-align: center;
+    margin: 5px auto 0px auto;
+    background-color: #242424;
+    border-radius: 15px;
+    border: 8px solid #505050;
+    padding: 5px;
+    display: block;
+    min-width: 200px;
+    max-width: 1000px;
+}
+
+.filterItem {
+    min-width: 90px;
+    margin: 5px;
+}
+
+#type {
+    margin: 5px;
+    height: 24px;
+    min-width: 100px;
+    width: 100px;
+}
+
+/* Card Container Starts Here */
+.cardContainer {
+    overflow: hidden;
+    margin: 5px auto 0px auto;
+    background-color: #242424;
+    border-radius: 15px;
+    border: 8px solid #505050;
+    padding: 5px;
+    min-width: 200px;
+    max-width: 1000px;
+}
+
+/* Pagination Container Starts Here */
+.paginationContainer {
+    overflow: hidden;
+    text-align: center;
+    margin: 5px auto 0px auto;
+    background-color: #242424;
+    border-radius: 15px;
+    border: 8px solid #505050;
+    padding: 5px;
+    min-width: 200px;
+    max-width: 1000px;
+}
+
+.paginationContainerL1 {
+    margin: 0px 5px 0px 5px;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.pageNumber {
+    overflow: hidden;
+    margin: 10px 80px 0 80px;
+    width: 30px;
+    height: 30px;
+}
+
+#prevPage {
+    width: 40px;
+    height: 40px;
+}
+
+#nextPage {
+    width: 40px;
+    height: 40px;
+}
+
+#pagination {
+    min-height: 50px;
+    max-height: 50px;
+    margin-bottom: 80px;
+    background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,1), rgba(0,0,0,1), rgba(0,0,0,1), rgba(0,0,0,1), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,1), rgba(0,0,0,1), rgba(0,0,0,1), rgba(0,0,0,1), rgba(0,0,0,1));
+}
+
+/* Media Queries Starts Here */
+@media screen and (max-width: 600px) {
+
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    /* Add your medium screen styles here */
+}
+
+@media screen and (min-width: 1025px) {
+    /* Add your large screen styles here */
+}
